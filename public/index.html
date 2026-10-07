@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spider debug · singareddyai.com</title>
+    <meta name="description" content="A spider or rat crawls through your file and corrects spelling mistakes on screen.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <meta property="og:title" content="Spider debug · singareddyai.com">
+    <meta property="og:image" content="/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="https://singareddyai.com">
+        <img src="/icon.png" width="64" height="64" alt="singareddyai.com">
+        <span>
+          <strong>Spider debug</strong>
+          <small>singareddyai.com</small>
+        </span>
+      </a>
+      <p>Open a file, then click Debug code. A spider or a rat crawls through the text and fixes each spelling mistake. A short tune plays while it works.</p>
+    </header>
+    <main>
+      <label class="upload">
+        Open a file
+        <input id="file" type="file" accept=".py,.txt,.md,.js,.ts,.tsx,.jsx,.html,.css,.json,.csv,.xml,.java,.c,.cpp,.cs,.go,.rs,.rst,.log,text/plain">
+      </label>
+      <div class="controls">
+        <div class="group" id="samples" role="group" aria-label="Sample">
+          <span>Sample</span>
+          <button type="button" data-sample="buggy_code.py" class="on">Sample code</button>
+          <button type="button" data-sample="meeting_notes.txt">Sample document</button>
+        </div>
+        <div class="group" id="creatures" role="group" aria-label="Crawler">
+          <span>Crawler</span>
+          <button type="button" data-creature="spider" class="on">Spider</button>
+          <button type="button" data-creature="rat">Rat</button>
+        </div>
+        <button type="button" id="debug" class="primary">Debug code</button>
+      </div>
+      <p class="meta"><strong id="count">0</strong> spelling mistakes <span id="filename"></span></p>
+      <p id="note" hidden></p>
+      <div id="root">
+        <div id="status"></div>
+        <div id="track"><div id="bar"></div></div>
+        <div id="page">
+          <div id="creature" aria-hidden="true"><div id="bug"></div></div>
+          <div id="lines"></div>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" id="download" disabled>Download corrected file</button>
+        <details>
+          <summary>Correction list</summary>
+          <div id="list"></div>
+        </details>
+      </div>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
